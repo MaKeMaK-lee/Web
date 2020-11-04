@@ -1,11 +1,21 @@
 const http = require("http");
 const fs = require("fs");
 http.createServer(function(request, response){
-    if (request.url!="/ava.jpg"&&request.url!="/")
+    if (request.url!="/ava.jpg"&&request.url!="/"&&request.url!="/L3.js"&&request.url!="/L3.css")
     	response.end("<h1>error 404</h1>");
-    if (request.url=="/ava.jpg")//Таким же образом можно было бы наверное и js подключить, но, раз это необязательно, пойду хотя бы в 7 лягу...
+    if (request.url=="/ava.jpg")
     {
     	fs.readFile("ava.jpg", function(error, data){
+    
+    response.end(data);});}
+    if (request.url=="/L3.css")
+    {
+    	fs.readFile("L3.css", function(error, data){
+    
+    response.end(data);});}
+    if (request.url=="/L3.js")
+    {
+    	fs.readFile("L3.js", function(error, data){
     
     response.end(data);});}
     else {
